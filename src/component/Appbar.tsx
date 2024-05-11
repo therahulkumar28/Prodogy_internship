@@ -7,11 +7,7 @@ const Appbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
-      if (scrollTop > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(scrollTop > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -21,8 +17,8 @@ const Appbar = () => {
   }, []);
 
   return (
-    <div className={`bg-${isScrolled ? 'white' : 'gray-900'} text-${isScrolled ? 'black' : 'white'} fixed top-0 left-0 w-full z-10 transition-colors duration-300 ease-in-out shadow-md`}>
-      <div className="container mx-auto w-50% px-4 py-3 flex justify-between items-center">
+    <div className={`fixed top-0 left-0 w-full z-10 shadow-md transition-colors duration-300 ease-in-out ${isScrolled ? 'bg-white text-black' : 'bg-gray-900 text-white'}`}>
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <div className="text-xl font-bold">Prodigy</div>
         <div className="flex items-center">
           <ul className={`hidden md:flex justify-between w-50% items-center space-x-4 ${isMenuOpen ? 'hidden' : 'block'}`}>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const Stopwatch: React.FC = () => {
+  //states
   const [timer, setTimer] = useState<boolean>(false);
   const [hour, setHour] = useState<number>(0);
   const [minute, setMinute] = useState<number>(0);
